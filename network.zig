@@ -1322,7 +1322,7 @@ pub fn getEndpointList(allocator: std.mem.Allocator, name: []const u8, port: u16
         defer allocator.free(port_c);
 
         const hints: posix.addrinfo = .{
-            .flags = .{ .NUMERICSERV = true },
+            .flags = std.c.AI.NUMERICSERV,
             .family = posix.AF.UNSPEC,
             .socktype = posix.SOCK.STREAM,
             .protocol = posix.IPPROTO.TCP,
